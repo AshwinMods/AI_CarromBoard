@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1544223148186181460}
   - component: {fileID: 1544223148186181459}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3108984812512672334}
   - component: {fileID: 3108984812512672335}
   - component: {fileID: 3108984812512672320}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Striker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

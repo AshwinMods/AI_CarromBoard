@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6783880712682949328}
   - component: {fileID: 4749005459045707522}
   - component: {fileID: 5323693347617119426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Puck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4807431110904007559}
   - component: {fileID: 2978110014498545369}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
