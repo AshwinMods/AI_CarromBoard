@@ -26,7 +26,6 @@ public class BoardManager : MonoBehaviour
 	[Space]
 	[SerializeField] float strikerRadius = 0.37f;
 	[SerializeField] float puckRadius = 0.26f;
-	[SerializeField] float potRadius = 0.37f;
 	[Space]
 	[SerializeField] float strikeThreshold = 0.5f;
 	[SerializeField] float speedAdder = 1;
@@ -37,16 +36,29 @@ public class BoardManager : MonoBehaviour
 	[SerializeField] Rigidbody2D[] pucks;
 	[SerializeField] Transform[] pots;
 
-	[Header("Realtime")]
+	[Header("Realtime (ReadOnly)")]
 	[SerializeField] Transform tPuck;
 	[SerializeField] Transform tPot;
 	[SerializeField] Vector2 strikeDir = Vector2.up;
 	[SerializeField] float strikeSpeed = 10;
 
+	// Auto Reset will be Nice :)
+	bool resetDone = false;
+	private void LateUpdate()
+	{
+		if (!resetDone && striker.IsSleeping())
+		{
+			foreach (var p in pucks)
+				if (!p.IsSleeping() && p.gameObject.activeSelf)
+					return;
+			resetDone = true;
+			UI_Calculate();
+		}
+	}
+
 	#region AI_Calculations
-	// I prefer Struct but using Class here for accessibilty. (yeah, ask me :P)
 	[System.Serializable]
-	public class StrikeInfo
+	public struct StrikeInfo
 	{
 		public int potID;
 		public int puckID;
@@ -58,7 +70,15 @@ public class BoardManager : MonoBehaviour
 		public float speed;
 	}
 	[SerializeField] List<StrikeInfo> strikeInfo;
-	public float? GetRayToLineSegmentIntersection(Vector3 rayOrg, Vector3 rayDir, Vector3 point1, Vector3 point2)
+	Vector3 Get_NormalPoint_OnLine(Vector3 p, Vector3 a, Vector3 b)
+	{
+		Vector3 ap = p - a;
+		Vector3 ab = b - a;
+		ab.Normalize();
+		ab *= Vector3.Dot(ap, ab);
+		return a + ab;
+	}
+	public float? Get_Ray_OnLineSeg(Vector3 rayOrg, Vector3 rayDir, Vector3 point1, Vector3 point2)
 	{
 		var v1 = rayOrg - point1;
 		var v2 = point2 - point1;
@@ -76,7 +96,7 @@ public class BoardManager : MonoBehaviour
 
 		return null;
 	}
-	private List<StrikeInfo> Calc_DirectStrike(PlayLine pLine, int lSplit, int potID)
+	private List<StrikeInfo> Calc_DirectStrike(PlayLine pLine, int lSplit, int potID, bool checkObstacles = true)
 	{
 		var hitInfo = new List<StrikeInfo>();
 		Vector2 pot, puck;
@@ -88,8 +108,8 @@ public class BoardManager : MonoBehaviour
 				pot = pots[potID].position;
 
 				// OBSTACLE Check : If Path is Clear from This PUCK to Target POT
-				var puck2Pot = Physics2D.CircleCastAll(puck, puckRadius, (pot - puck).normalized, boardCube * 2, 1 << 9);
-				if (puck2Pot.Length > 1)
+				var puck2Pot = checkObstacles && (Physics2D.CircleCastAll(puck, puckRadius, (pot - puck).normalized, boardCube * 2, 1 << 9).Length > 1);
+				if (puck2Pot)
 					continue;
 
 				//Some Platform Indipendent Vector Math, to get 
@@ -98,13 +118,22 @@ public class BoardManager : MonoBehaviour
 				hitDir.Normalize();
 				var hitPos = (puck - hitDir * (puckRadius + strikerRadius));
 
+				// EDGE Check : If Position is Overlaping Edge, Adjust accordingly
+				if (Physics2D.OverlapCircle(hitPos, strikerRadius, 1 << 11) != null)
+				{
+					var dx = Mathf.Min(Mathf.Abs(hitPos.x), boardCube - strikerRadius);
+					var dy = Mathf.Min(Mathf.Abs(hitPos.y), boardCube - strikerRadius);
+					hitPos.x = Mathf.Sign(hitPos.x) * dx;
+					hitPos.y = Mathf.Sign(hitPos.y) * dy;
+				}
+
 				var info = new StrikeInfo(); // We will store the best Hit Vector for this PUCK-POT combo.
 				for (int i = -1; i <= lSplit; i++) // to ccheck more than one possiblity to take the shot
 				{
 					Vector2 sPos;
 					if (i < 0) // For Best possible shot
 					{
-						var rM = GetRayToLineSegmentIntersection(hitPos, -hitDir, pLine.pos, pLine.pos + pLine.lenDir * pLine.len);
+						var rM = Get_Ray_OnLineSeg(hitPos, -hitDir, pLine.pos, pLine.pos + pLine.lenDir * pLine.len);
 						if (rM != null && rM.HasValue)
 							sPos = hitPos - hitDir * rM.Value;
 						else
@@ -149,7 +178,7 @@ public class BoardManager : MonoBehaviour
 		}
 		return hitInfo;
 	}
-	private List<StrikeInfo> Calc_ReflectedStrike(PlayLine rLine, int lSplit, int potID, PlayLine pLine)
+	private List<StrikeInfo> Calc_ReflectedStrike(PlayLine rLine, int lSplit, int potID, PlayLine pLine, bool checkObstacles = true)
 	{
 		var hitInfo = new List<StrikeInfo>();
 		Vector2 pot, puck;
@@ -161,8 +190,8 @@ public class BoardManager : MonoBehaviour
 				pot = pots[potID].position;
 
 				// OBSTACLE Check : If Path is Clear from This PUCK to Target POT
-				var puck2Pot = Physics2D.CircleCastAll(puck, puckRadius, (pot - puck).normalized, boardCube * 2, 1 << 9);
-				if (puck2Pot.Length > 1)
+				var puck2Pot = checkObstacles && (Physics2D.CircleCastAll(puck, puckRadius, (pot - puck).normalized, boardCube * 2, 1 << 9).Length > 1);
+				if (puck2Pot)
 					continue;
 
 				//Some Platform Indipendent Vector Math, to get 
@@ -170,6 +199,14 @@ public class BoardManager : MonoBehaviour
 				var dist = hitDir.magnitude;
 				hitDir.Normalize();
 				var hitPos = (puck - hitDir * (puckRadius + strikerRadius));
+				// EDGE Check : If Position is Overlaping Edge, Adjust accordingly
+				if (Physics2D.OverlapCircle(hitPos, strikerRadius, 1 << 11) != null)
+				{
+					var dx = Mathf.Min(Mathf.Abs(hitPos.x), boardCube - strikerRadius);
+					var dy = Mathf.Min(Mathf.Abs(hitPos.y), boardCube - strikerRadius);
+					hitPos.x = Mathf.Sign(hitPos.x) * dx;
+					hitPos.y = Mathf.Sign(hitPos.y) * dy;
+				}
 
 				var info = new StrikeInfo(); // We will store the best Hit Vector for this PUCK-POT combo.
 				for (int i = -1; i <= lSplit; i++) // to ccheck more than one possiblity to take the shot
@@ -177,7 +214,7 @@ public class BoardManager : MonoBehaviour
 					Vector2 sPos;
 					if (i < 0) // For Best possible shot
 					{
-						var rM = GetRayToLineSegmentIntersection(hitPos, -hitDir, rLine.pos, rLine.pos + rLine.lenDir * rLine.len);
+						var rM = Get_Ray_OnLineSeg(hitPos, -hitDir, rLine.pos, rLine.pos + rLine.lenDir * rLine.len);
 						if (rM != null && rM.HasValue)
 							sPos = hitPos - hitDir * rM.Value;
 						else
@@ -207,9 +244,10 @@ public class BoardManager : MonoBehaviour
 						{
 							// Let's Check for Reflection THEN
 							var reflect = Vector2.Reflect(-sDir, Vector2.Perpendicular(rLine.lenDir));
-							var rM = GetRayToLineSegmentIntersection(sPos, reflect, pLine.pos, pLine.pos + pLine.lenDir * pLine.len);
+							var rM = Get_Ray_OnLineSeg(sPos, reflect, pLine.pos, pLine.pos + pLine.lenDir * pLine.len);
 							if (rM != null && rM.HasValue)
 							{
+								tSpeed += rM.Value;
 								if (tSpeed < speedMinMax.y && hitDot > strikeThreshold
 									&& Vector2.Dot(pLine.playDir, -reflect) > 0)
 								{
@@ -226,7 +264,7 @@ public class BoardManager : MonoBehaviour
 										info.tar = sPos;
 										info.rVec = hitVect;
 										info.hDot = hitDot;
-										info.speed = tSpeed + rM.Value;
+										info.speed = tSpeed;
 									}
 								}
 							}
@@ -240,29 +278,45 @@ public class BoardManager : MonoBehaviour
 		return hitInfo;
 	}
 
-	private void Calc_BestShot()
+	private void Calc_BestShot(int pID, bool checkObstalces = true)
 	{
+		strikeSpeed = 0;
+		strikeDir = Vector2.zero;
+		striker.transform.position = Vector3.zero;
+		striker.velocity = Vector2.zero;
+
 		if (strikeInfo == null)
 			strikeInfo = new List<StrikeInfo>();
 		strikeInfo.Clear();
 
-		var d1 = Calc_DirectStrike(playLines[0], playSideChecks, 0);
-		strikeInfo.AddRange(d1);
+		int p0 = pID, p1 = (pID + 1) % 4, p2 = (pID + 2) % 4, p3 = (pID + 3) % 4;
+		int b0 = ((pID + 1) % 4 + 4), s0 = (pID + 4), s1 = ((pID + 1) % 4 + 4);
 
-		var d2 = Calc_DirectStrike(playLines[0], playSideChecks, 1);
-		strikeInfo.AddRange(d2);
+		if (UI_DirectShot)
+		{
+			var d0p0 = Calc_DirectStrike(playLines[pID], playSideChecks, p0, checkObstalces);
+			strikeInfo.AddRange(d0p0);
+			var d0p1 = Calc_DirectStrike(playLines[pID], playSideChecks, p1, checkObstalces);
+			strikeInfo.AddRange(d0p1);
+		}
 
-		var b1 = Calc_ReflectedStrike(playLines[5], reflectSideChecks, 3, playLines[0]);
-		strikeInfo.AddRange(b1);
+		if (UI_BackShot)
+		{
+			var b0p2 = Calc_ReflectedStrike(playLines[b0], reflectSideChecks, p2, playLines[pID], checkObstalces);
+			strikeInfo.AddRange(b0p2);
 
-		var b2 = Calc_ReflectedStrike(playLines[5], reflectSideChecks, 2, playLines[0]);
-		strikeInfo.AddRange(b2);
+			var b0p3 = Calc_ReflectedStrike(playLines[b0], reflectSideChecks, p3, playLines[pID], checkObstalces);
+			strikeInfo.AddRange(b0p3);
+		}
 
-		var s1 = Calc_ReflectedStrike(playLines[4], reflectSideChecks, 1, playLines[0]);
-		strikeInfo.AddRange(s1);
+		if (UI_SideShot)
+		{
+			var s0p1 = Calc_ReflectedStrike(playLines[s0], reflectSideChecks, p1, playLines[pID], checkObstalces);
+			strikeInfo.AddRange(s0p1);
 
-		var s2 = Calc_ReflectedStrike(playLines[6], reflectSideChecks, 0, playLines[0]);
-		strikeInfo.AddRange(s2);
+			var s1p0 = Calc_ReflectedStrike(playLines[s1], reflectSideChecks, p0, playLines[pID], checkObstalces);
+			strikeInfo.AddRange(s1p0);
+		}
 
 		if (strikeInfo.Count > 0)
 		{
@@ -280,6 +334,10 @@ public class BoardManager : MonoBehaviour
 			strikeSpeed = strikeInfo[bestStrike].speed;
 			striker.transform.position = strikeInfo[bestStrike].pos;
 			striker.velocity = Vector2.zero;
+		}else if (checkObstalces)
+		{
+			// If no shot possible without collision, then let's HIT anyway
+			Calc_BestShot(pID, false); //Recursion is not a bad idea for this case.
 		}
 	}
 	#endregion
@@ -289,6 +347,7 @@ public class BoardManager : MonoBehaviour
 	{
 		striker.gameObject.SetActive(true);
 		striker.velocity = strikeDir * strikeSpeed;
+		resetDone = false;
 	}
 	private void Take_Shot(int id)
 	{
@@ -315,8 +374,36 @@ public class BoardManager : MonoBehaviour
 	}
 	#endregion
 
+	#region UI_Events
+	//Sadly, No Time for UI Manager YET
+	public bool UI_DirectShot { set; get; } = true;
+	public bool UI_BackShot { set; get; } = true;
+	public bool UI_SideShot { set; get; } = true;
+	public string UI_PlayerID { set; get; } = "1";
+	
+	public void UI_Calculate()
+	{
+		if (string.IsNullOrEmpty(UI_PlayerID))
+			return;
+		var plrID = int.Parse(UI_PlayerID) - 1; // 0 for First Index
+		if (plrID < 0 || plrID > 3)
+			return;
+		Calc_BestShot(plrID);
+	}
+	public void UI_Fire()
+	{
+		UI_Calculate();
+		Take_Shot(-1);
+	}
+	public void UI_ResetPucks()
+	{
+		striker.gameObject.SetActive(true);
+		Reset_Tokens();
+	}
+	#endregion
+
 #if UNITY_EDITOR
-	[Header("Editor")]
+	[Header("Editor Dev Test")]
 	[SerializeField] bool placeTokens = false;
 	[SerializeField] bool calcDir = false;
 	[SerializeField] bool strike = false;
@@ -333,7 +420,7 @@ public class BoardManager : MonoBehaviour
 			if (tPot && tPuck)
 			{
 				calcDir = false;
-				Calc_BestShot();
+				Calc_BestShot(0);
 			}
 		}
 		if (strike)
