@@ -9,7 +9,8 @@ public class BoardManager : MonoBehaviour
 	{
 		public string name;
 		public Vector2 pos;
-		public Vector2 dir;
+		public Vector2 lenDir;
+		public Vector2 playDir;
 		public float len;
 	}
 	[SerializeField] PlayLine[] playLines;
@@ -103,7 +104,7 @@ public class BoardManager : MonoBehaviour
 					Vector2 sPos;
 					if (i < 0) // For Best possible shot
 					{
-						var rM = GetRayToLineSegmentIntersection(hitPos, -hitDir, pLine.pos, pLine.pos + pLine.dir * pLine.len);
+						var rM = GetRayToLineSegmentIntersection(hitPos, -hitDir, pLine.pos, pLine.pos + pLine.lenDir * pLine.len);
 						if (rM != null && rM.HasValue)
 							sPos = hitPos - hitDir * rM.Value;
 						else
@@ -111,7 +112,7 @@ public class BoardManager : MonoBehaviour
 					}
 					else //when Best line of sight isn't possible, we will try for other positions
 					{
-						sPos = pLine.pos + pLine.dir * pLine.len * (i / (float)lSplit);
+						sPos = pLine.pos + pLine.lenDir * pLine.len * (i / (float)lSplit);
 					}
 
 					// OBSTACLE Check : If Position is Clear for Striker Placement (in case a puck is blocking)
@@ -124,7 +125,8 @@ public class BoardManager : MonoBehaviour
 					var sDir = hitVect.normalized;
 					tSpeed = (tSpeed / hitDot) + speedAdder;
 					tSpeed = Mathf.Clamp(tSpeed, speedMinMax.x, speedMinMax.y);
-					if (tSpeed < speedMinMax.y && hitDot > strikeThreshold && hitDot > info.hDot)
+					if (tSpeed < speedMinMax.y && hitDot > strikeThreshold 
+						&& hitDot > info.hDot && Vector2.Dot(pLine.playDir, sDir) > 0)
 					{
 						//OBSTACLE Check :  If Path is Clear from This Position to This PUCK
 						var striker2Puck = Physics2D.CircleCast(sPos, strikerRadius, sDir, boardCube * 2, 1 << 9);
@@ -175,7 +177,7 @@ public class BoardManager : MonoBehaviour
 					Vector2 sPos;
 					if (i < 0) // For Best possible shot
 					{
-						var rM = GetRayToLineSegmentIntersection(hitPos, -hitDir, rLine.pos, rLine.pos + rLine.dir * rLine.len);
+						var rM = GetRayToLineSegmentIntersection(hitPos, -hitDir, rLine.pos, rLine.pos + rLine.lenDir * rLine.len);
 						if (rM != null && rM.HasValue)
 							sPos = hitPos - hitDir * rM.Value;
 						else
@@ -183,7 +185,7 @@ public class BoardManager : MonoBehaviour
 					}
 					else //when Best line of sight isn't possible, we will try for other positions
 					{
-						sPos = rLine.pos + rLine.dir * rLine.len * (i / (float)lSplit);
+						sPos = rLine.pos + rLine.lenDir * rLine.len * (i / (float)lSplit);
 					}
 
 					// OBSTACLE Check : If Position is Clear for Striker Placement (in case a puck is blocking)
@@ -196,24 +198,29 @@ public class BoardManager : MonoBehaviour
 					var sDir = hitVect.normalized;
 					tSpeed = (tSpeed / hitDot) + speedAdder;
 					tSpeed = Mathf.Clamp(tSpeed, speedMinMax.x, speedMinMax.y);
-					if (tSpeed < speedMinMax.y && hitDot > strikeThreshold && hitDot > info.hDot)
+					if (tSpeed < speedMinMax.y && hitDot > strikeThreshold 
+						&& hitDot > info.hDot && Vector2.Dot(rLine.playDir, sDir) > 0)
 					{
 						//OBSTACLE Check :  If Path is Clear from This Position to This PUCK
 						var Reflect2Puck = Physics2D.CircleCast(sPos, strikerRadius, sDir, boardCube * 2, 1 << 9);
 						if (Reflect2Puck.rigidbody == pucks[p])
 						{
 							// Let's Check for Reflection THEN
-							var reflect = Vector2.Reflect(-sDir, Vector2.Perpendicular(rLine.dir));
-							var rM = GetRayToLineSegmentIntersection(sPos, reflect, pLine.pos, pLine.pos + pLine.dir * pLine.len);
+							var reflect = Vector2.Reflect(-sDir, Vector2.Perpendicular(rLine.lenDir));
+							var rM = GetRayToLineSegmentIntersection(sPos, reflect, pLine.pos, pLine.pos + pLine.lenDir * pLine.len);
 							if (rM != null && rM.HasValue)
 							{
-								if (tSpeed < speedMinMax.y && hitDot > strikeThreshold)
+								if (tSpeed < speedMinMax.y && hitDot > strikeThreshold
+									&& Vector2.Dot(pLine.playDir, -reflect) > 0)
 								{
-									info.pos = sPos + reflect * rM.Value;
-									info.dir = -reflect;
+									var chkPos = sPos + reflect * rM.Value;
+									var chkDir = -reflect;
 									//OBSTACLE Check :  If Path is Clear from Striker to Refletion Point
-									if (!Physics2D.CircleCast(info.pos, strikerRadius, info.dir, rM.Value, 1 << 9))
+									if (!Physics2D.CircleCast(chkPos, strikerRadius, chkDir, rM.Value, 1 << 9)
+										&& Physics2D.OverlapCircle(chkPos, strikerRadius, 1 << 9) == null)
 									{
+										info.pos = chkPos;
+										info.dir = chkDir;
 										info.puckID = p;
 										info.potID = potID;
 										info.tar = sPos;
@@ -338,10 +345,10 @@ public class BoardManager : MonoBehaviour
 		Gizmos.color = Color.blue;
 		if (playLines != null)
 			for (int p = 0; p < 4; p++)
-				Gizmos.DrawLine(playLines[p].pos, playLines[p].pos + playLines[p].dir * playSideLen);
+				Gizmos.DrawLine(playLines[p].pos, playLines[p].pos + playLines[p].lenDir * playSideLen);
 		if (playLines != null)
 			for (int p = 4; p < 8; p++)
-				Gizmos.DrawLine(playLines[p].pos, playLines[p].pos + playLines[p].dir * reflectSideLen);
+				Gizmos.DrawLine(playLines[p].pos, playLines[p].pos + playLines[p].lenDir * reflectSideLen);
 		if (strikeInfo != null && strikeInfo.Count > 0)
 		{
 			for (int s = 0; s < strikeInfo.Count; s++)

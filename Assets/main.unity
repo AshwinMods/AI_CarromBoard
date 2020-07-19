@@ -230,12 +230,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.39
+      value: -3.780982
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.12
+      value: 0.20750046
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -337,12 +337,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.26
+      value: -4.201146
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.09
+      value: 3.7552614
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -450,7 +450,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.1
 --- !u!114 &288120662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe6096bb31927341a04e0c16c4f8d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catchSpeedThreshold: 5
+  catchSpeedThreshold: 10
 --- !u!1001 &359881030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,12 +505,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26
+      value: -2.949089
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.53
+      value: 1.3176565
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -597,12 +597,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8069975
+      value: -4.9535494
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.7369347
+      value: 0.3949995
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -710,7 +710,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.1
 --- !u!114 &881416434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe6096bb31927341a04e0c16c4f8d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catchSpeedThreshold: 5
+  catchSpeedThreshold: 10
 --- !u!1 &969271918
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +771,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.1
 --- !u!114 &969271921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe6096bb31927341a04e0c16c4f8d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catchSpeedThreshold: 5
+  catchSpeedThreshold: 10
 --- !u!1 &1464245581
 GameObject:
   m_ObjectHideFlags: 0
@@ -5858,12 +5858,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.46
+      value: 0.39776325
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.91
+      value: -4.001135
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -5999,12 +5999,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.84
+      value: 4.639227
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.31
+      value: 1.625251
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -6097,42 +6097,50 @@ MonoBehaviour:
   playLines:
   - name: 
     pos: {x: -3.5, y: -4.25}
-    dir: {x: 1, y: 0}
+    lenDir: {x: 1, y: 0}
+    playDir: {x: 0, y: 1}
     len: 7
   - name: 
     pos: {x: -4.25, y: -3.5}
-    dir: {x: 0, y: 1}
+    lenDir: {x: 0, y: 1}
+    playDir: {x: 1, y: 0}
     len: 7
   - name: 
     pos: {x: -3.5, y: 4.25}
-    dir: {x: 1, y: 0}
+    lenDir: {x: 1, y: 0}
+    playDir: {x: 0, y: -1}
     len: 7
   - name: 
     pos: {x: 4.25, y: -3.5}
-    dir: {x: 0, y: 1}
+    lenDir: {x: 0, y: 1}
+    playDir: {x: -1, y: 0}
     len: 7
   - name: 
     pos: {x: -6.63, y: -5.5}
-    dir: {x: 0, y: 1}
+    lenDir: {x: 0, y: 1}
+    playDir: {x: 1, y: 0}
     len: 11
   - name: 
     pos: {x: -5.5, y: 6.63}
-    dir: {x: 1, y: 0}
+    lenDir: {x: 1, y: 0}
+    playDir: {x: 0, y: -1}
     len: 11
   - name: 
     pos: {x: 6.63, y: -5.5}
-    dir: {x: 0, y: 1}
+    lenDir: {x: 0, y: 1}
+    playDir: {x: -1, y: 0}
     len: 11
   - name: 
     pos: {x: -5.5, y: -6.63}
-    dir: {x: 1, y: 0}
+    lenDir: {x: 1, y: 0}
+    playDir: {x: 0, y: 1}
     len: 11
   spawnCube: 6
   boardCube: 7
   playSideLen: 7
-  playSideChecks: 9
+  playSideChecks: 15
   reflectSideLen: 11
-  reflectSideChecks: 15
+  reflectSideChecks: 21
   strikerRadius: 0.37
   puckRadius: 0.26
   potRadius: 0.2
@@ -6155,57 +6163,153 @@ MonoBehaviour:
   - {fileID: 288120660}
   tPuck: {fileID: 359881031}
   tPot: {fileID: 969271919}
-  strikeDir: {x: 0.3549101, y: 0.9349004}
-  strikeSpeed: 28.550747
+  strikeDir: {x: 0.37152982, y: 0.928421}
+  strikeSpeed: 12.110363
   strikeInfo:
   - potID: 0
     puckID: 1
-    hDot: 0.6818652
-    pos: {x: -3.5, y: -4.25}
-    dir: {x: -0.75387245, y: 0.65702075}
-    tar: {x: -6.3689303, y: -1.7496476}
+    hDot: 0.99999994
+    pos: {x: -1.7959374, y: -4.25}
+    dir: {x: -0.40681148, y: 0.9135121}
+    tar: {x: -3.5246909, y: -0.3680122}
     rVec: {x: 0, y: 0}
-    speed: 19.98274
-  - potID: 3
+    speed: 12.301972
+  - potID: 0
+    puckID: 2
+    hDot: 0.99902594
+    pos: {x: -3.5, y: -4.25}
+    dir: {x: -0.30409336, y: 0.95264226}
+    tar: {x: -4.7886415, y: -0.21303451}
+    rVec: {x: 0, y: 0}
+    speed: 11.729072
+  - potID: 0
+    puckID: 4
+    hDot: 0.99999994
+    pos: {x: 2.5710425, y: -4.25}
+    dir: {x: -0.6458592, y: 0.7634565}
+    tar: {x: -3.7942548, y: 3.274284}
+    rVec: {x: 0, y: 0}
+    speed: 14.647173
+  - potID: 1
     puckID: 0
-    hDot: 0.9045927
-    pos: {x: 2.4160094, y: -4.250001}
-    dir: {x: -0.3075043, y: 0.95154667}
-    tar: {x: -1.0999999, y: 6.63}
-    rVec: {x: -3.6292133, y: -11.230301}
-    speed: 29.889803
-  - potID: 3
+    hDot: 0.9948685
+    pos: {x: 3.5, y: -4.25}
+    dir: {x: 0.3243946, y: 0.9459219}
+    tar: {x: 5.4018626, y: 1.2957563}
+    rVec: {x: 0, y: 0}
+    speed: 11.785952
+  - potID: 1
     puckID: 1
-    hDot: 0.9850369
-    pos: {x: -2.3315175, y: -4.25}
-    dir: {x: -0.21841496, y: 0.975856}
-    tar: {x: -4.7666664, y: 6.63}
-    rVec: {x: -1.5937457, y: -7.120695}
-    speed: 27.177105
+    hDot: 0.35023522
+    pos: {x: -3.5, y: -4.25}
+    dir: {x: -0.19421837, y: 0.98095834}
+    tar: {x: -4.3169885, y: -0.12355387}
+    rVec: {x: 0, y: 0}
+    speed: 48.016098
+  - potID: 1
+    puckID: 3
+    hDot: 1
+    pos: {x: 2.2881052, y: -4.25}
+    dir: {x: 0.37152982, y: 0.928421}
+    tar: {x: 4.4051633, y: 1.0403458}
+    rVec: {x: 0, y: 0}
+    speed: 12.110363
   - potID: 3
     puckID: 6
-    hDot: 0.34333774
-    pos: {x: 2.29775, y: -4.250001}
-    dir: {x: -0.17475796, y: 0.98461145}
-    tar: {x: 0.3666668, y: 6.63}
-    rVec: {x: -2.206268, y: -12.430431}
-    speed: 63.213154
+    hDot: 0.4264734
+    pos: {x: 2.7174125, y: -4.25}
+    dir: {x: -0.08099033, y: 0.99671483}
+    tar: {x: 1.8333335, y: 6.63}
+    rVec: {x: -0.84584683, y: -10.409491}
+    speed: 54.058952
+  - potID: 2
+    puckID: 0
+    hDot: 0.9935334
+    pos: {x: 1.7646127, y: -4.250001}
+    dir: {x: 0.23982784, y: 0.9708155}
+    tar: {x: 4.452381, y: 6.63}
+    rVec: {x: 1.011836, y: -4.09588}
+    speed: 25.14007
+  - potID: 2
+    puckID: 1
+    hDot: 0.34383076
+    pos: {x: -0.32683825, y: -4.250001}
+    dir: {x: -0.22854026, y: 0.97353446}
+    tar: {x: -2.8809524, y: 6.63}
+    rVec: {x: -1.4264579, y: -6.076417}
+    speed: 66.635185
   - potID: 2
     puckID: 3
-    hDot: 0.6357191
-    pos: {x: -2.341654, y: -4.25}
-    dir: {x: 0.24155511, y: 0.9703871}
-    tar: {x: 0.3666668, y: 6.63}
-    rVec: {x: 2.9046807, y: -11.668827}
-    speed: 38.024532
+    hDot: 0.9938306
+    pos: {x: 2.5367885, y: -4.25}
+    dir: {x: 0.12688728, y: 0.99191713}
+    tar: {x: 3.9285717, y: 6.63}
+    rVec: {x: 0.56190205, y: -4.3925624}
+    speed: 24.993412
   - potID: 2
+    puckID: 5
+    hDot: 0.54857427
+    pos: {x: -1.6557821, y: -4.250001}
+    dir: {x: -0.111900315, y: 0.99371946}
+    tar: {x: -2.8809524, y: 6.63}
+    rVec: {x: -0.5528996, y: -4.9099693}
+    speed: 43.696552
+  - potID: 2
+    puckID: 6
+    hDot: 0.4871776
+    pos: {x: -2.4904099, y: -4.250001}
+    dir: {x: 0.10790361, y: 0.99416137}
+    tar: {x: -1.3095236, y: 6.63}
+    rVec: {x: 1.1272004, y: -10.385372}
+    speed: 47.32437
+  - potID: 1
+    puckID: 1
+    hDot: 1
+    pos: {x: -2.2619262, y: -4.25}
+    dir: {x: -0.8508041, y: 0.5254831}
+    tar: {x: -6.63, y: -1.5521418}
+    rVec: {x: 2.3130116, y: 1.4285879}
+    speed: 21.11282
+  - potID: 1
+    puckID: 3
+    hDot: 0.6609511
+    pos: {x: -2.7772796, y: -4.25}
+    dir: {x: -0.9422771, y: 0.33483413}
+    tar: {x: -6.63, y: -2.8809524}
+    rVec: {x: 11.035164, y: 3.921298}
+    speed: 30.99581
+  - potID: 1
     puckID: 4
-    hDot: 0.9909536
-    pos: {x: -3.030303, y: -4.25}
-    dir: {x: 0.3549101, y: 0.9349004}
-    tar: {x: 1.1000004, y: 6.63}
-    rVec: {x: 3.859384, y: -10.166348}
-    speed: 28.550747
+    hDot: 0.80381984
+    pos: {x: -2.1983056, y: -4.25}
+    dir: {x: -0.6233283, y: 0.78196025}
+    tar: {x: -6.63, y: 1.309524}
+    rVec: {x: 1.8201413, y: 2.2833524}
+    speed: 25.713995
+  - potID: 0
+    puckID: 1
+    hDot: 0.6143431
+    pos: {x: 1.097733, y: -4.25}
+    dir: {x: 0.97071856, y: 0.24021979}
+    tar: {x: 6.63, y: -2.8809524}
+    rVec: {x: -10.154691, y: 2.5129402}
+    speed: 35.206757
+  - potID: 0
+    puckID: 3
+    hDot: 0.90587866
+    pos: {x: 3.1695023, y: -4.25}
+    dir: {x: 0.6553791, y: 0.7553001}
+    tar: {x: 6.63, y: -0.26190472}
+    rVec: {x: -1.4152102, y: 1.6309772}
+    speed: 22.304752
+  - potID: 0
+    puckID: 4
+    hDot: 0.9311136
+    pos: {x: 3.1261587, y: -4.25}
+    dir: {x: 0.87982315, y: 0.4753011}
+    tar: {x: 6.63, y: -2.3571427}
+    rVec: {x: -10.424255, y: 5.631427}
+    speed: 21.779259
   placeTokens: 0
   calcDir: 0
   strike: 0
@@ -6276,7 +6380,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.1
 --- !u!114 &2098015249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6289,7 +6393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe6096bb31927341a04e0c16c4f8d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catchSpeedThreshold: 5
+  catchSpeedThreshold: 10
 --- !u!1001 &1544223148846819159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6315,7 +6419,7 @@ PrefabInstance:
     - target: {fileID: 3108984812512672334, guid: bd4654ce0ac1fb742807e63cf51c997b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.030303
+      value: 2.2881052
       objectReference: {fileID: 0}
     - target: {fileID: 3108984812512672334, guid: bd4654ce0ac1fb742807e63cf51c997b,
         type: 3}
@@ -6402,12 +6506,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.16
+      value: 5.5448885
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.06
+      value: 1.9093063
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
