@@ -292,7 +292,7 @@ public class BoardManager : MonoBehaviour
 		strikeInfo.Clear();
 
 		int p0 = pID, p1 = (pID + 1) % 4, p2 = (pID + 2) % 4, p3 = (pID + 3) % 4;
-		int b0 = ((pID + 1) % 4 + 4), s0 = (pID + 4), s1 = ((pID + 1) % 4 + 4);
+		int b0 = ((pID + 1) % 4 + 4), s0 = (pID + 4), s1 = ((pID + 2) % 4 + 4);
 
 		if (UI_DirectShot)
 		{
@@ -338,25 +338,7 @@ public class BoardManager : MonoBehaviour
 			striker.velocity = Vector2.zero;
 
 			//Visualize
-			visualPot.gameObject.SetActive(true);
-			visualPuck.gameObject.SetActive(true);
-			visualLine.gameObject.SetActive(true);
-			visualStrike.gameObject.SetActive(true);
-			visualTarget.gameObject.SetActive(true);
-			visualStrike.up = strikeInfo[bestStrike].dir;
-			visualStrike.position = strikeInfo[bestStrike].pos;
-			visualTarget.position = strikeInfo[bestStrike].tar;
-			visualPot.position = pots[strikeInfo[bestStrike].potID].position;
-			visualPuck.position = pucks[strikeInfo[bestStrike].puckID].position;
-			visualPuck.up = (visualPot.position - visualPuck.position);
-			visualPot.up = visualPuck.up;
-
-			if (visualLine.positionCount != 4)
-				visualLine.positionCount = 4;
-			visualLine.SetPosition(0, visualStrike.position);
-			visualLine.SetPosition(1, visualTarget.position);
-			visualLine.SetPosition(2, visualPuck.position);
-			visualLine.SetPosition(3, visualPot.position);
+			Visualize_Strike(bestStrike);
 		}
 		else if (checkObstalces)
 		{
@@ -369,7 +351,43 @@ public class BoardManager : MonoBehaviour
 			visualLine.gameObject.SetActive(false);
 			visualStrike.gameObject.SetActive(false);
 			visualTarget.gameObject.SetActive(false);
+			Visualize_Strike(-1);
 		}
+	}
+
+	void Visualize_Strike(int id)
+	{
+		if (id < 0 || id >= strikeInfo.Count)
+		{
+			visualPot.gameObject.SetActive(false);
+			visualPuck.gameObject.SetActive(false);
+			visualLine.gameObject.SetActive(false);
+			visualStrike.gameObject.SetActive(false);
+			visualTarget.gameObject.SetActive(false);
+			striker.transform.position = Vector2.zero;
+			return;
+		}
+		//Visualize
+		striker.transform.position = strikeInfo[id].pos;
+		visualPot.gameObject.SetActive(true);
+		visualPuck.gameObject.SetActive(true);
+		visualLine.gameObject.SetActive(true);
+		visualStrike.gameObject.SetActive(true);
+		visualTarget.gameObject.SetActive(true);
+		visualStrike.up = strikeInfo[id].dir;
+		visualStrike.position = strikeInfo[id].pos;
+		visualTarget.position = strikeInfo[id].tar;
+		visualPot.position = pots[strikeInfo[id].potID].position;
+		visualPuck.position = pucks[strikeInfo[id].puckID].position;
+		visualPuck.up = (visualPot.position - visualPuck.position);
+		visualPot.up = visualPuck.up;
+
+		if (visualLine.positionCount != 4)
+			visualLine.positionCount = 4;
+		visualLine.SetPosition(0, visualStrike.position);
+		visualLine.SetPosition(1, visualTarget.position);
+		visualLine.SetPosition(2, visualPuck.position);
+		visualLine.SetPosition(3, visualPot.position);
 	}
 	#endregion
 
@@ -437,6 +455,7 @@ public class BoardManager : MonoBehaviour
 	[Header("Editor Dev Test")]
 	[SerializeField] bool placeTokens = false;
 	[SerializeField] bool calcDir = false;
+	[SerializeField] bool visualize = false;
 	[SerializeField] bool strike = false;
 	[SerializeField] int shotID = -1;
 	private void OnDrawGizmos()
@@ -453,6 +472,11 @@ public class BoardManager : MonoBehaviour
 				calcDir = false;
 				Calc_BestShot(0);
 			}
+		}
+		if (visualize)
+		{
+			visualize = false;
+			Visualize_Strike(shotID);
 		}
 		if (strike)
 		{
