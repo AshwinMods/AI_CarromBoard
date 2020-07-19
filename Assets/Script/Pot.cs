@@ -6,7 +6,7 @@ public class Pot : MonoBehaviour
 {
 	[SerializeField] float catchSpeedThreshold = 5;
 	float thresholdSQ = 0;
-	private void Awake()
+	private void OnEnable()
 	{
 		thresholdSQ = Mathf.Pow(catchSpeedThreshold, 2);
 	}

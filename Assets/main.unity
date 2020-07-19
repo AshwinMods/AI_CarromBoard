@@ -214,17 +214,28 @@ PrefabInstance:
     - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_Name
-      value: Puck (1)
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.62
+      value: -6.39
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.77
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -295,7 +306,18 @@ PrefabInstance:
     - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_Name
-      value: Puck (4)
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2978110014498545369, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -315,12 +337,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4634647
+      value: 5.26
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42518997
+      value: -4.09
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -452,7 +474,18 @@ PrefabInstance:
     - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_Name
-      value: Puck (5)
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2978110014498545369, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -472,12 +505,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.18410206
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.422386
+      value: -5.53
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -548,17 +581,28 @@ PrefabInstance:
     - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_Name
-      value: Puck (2)
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.693633
+      value: 1.8069975
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.004774
+      value: -4.7369347
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -5783,7 +5827,18 @@ PrefabInstance:
     - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_Name
-      value: Puck (6)
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2978110014498545369, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -5803,12 +5858,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.479847
+      value: -2.46
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3536644
+      value: -5.91
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -5913,7 +5968,18 @@ PrefabInstance:
     - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_Name
-      value: Puck (3)
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2978110014498545369, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -5933,12 +5999,12 @@ PrefabInstance:
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.72
+      value: 3.84
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17
+      value: -5.31
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
@@ -6028,28 +6094,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7578637882fbcc4fb00f85fcd8d72a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - name: P1
+  playLines:
+  - name: 
     pos: {x: -3.5, y: -4.25}
     dir: {x: 1, y: 0}
-  - name: P2
+    len: 7
+  - name: 
     pos: {x: -4.25, y: -3.5}
     dir: {x: 0, y: 1}
-  - name: P3
+    len: 7
+  - name: 
     pos: {x: -3.5, y: 4.25}
     dir: {x: 1, y: 0}
-  - name: P4
+    len: 7
+  - name: 
     pos: {x: 4.25, y: -3.5}
     dir: {x: 0, y: 1}
+    len: 7
+  - name: 
+    pos: {x: -6.63, y: -5.5}
+    dir: {x: 0, y: 1}
+    len: 11
+  - name: 
+    pos: {x: -5.5, y: 6.63}
+    dir: {x: 1, y: 0}
+    len: 11
+  - name: 
+    pos: {x: 6.63, y: -5.5}
+    dir: {x: 0, y: 1}
+    len: 11
+  - name: 
+    pos: {x: -5.5, y: -6.63}
+    dir: {x: 1, y: 0}
+    len: 11
   spawnCube: 6
   boardCube: 7
   playSideLen: 7
   playSideChecks: 9
+  reflectSideLen: 11
+  reflectSideChecks: 15
   strikerRadius: 0.37
   puckRadius: 0.26
   potRadius: 0.2
   strikeThreshold: 0.25
-  speedAdder: 3
+  speedAdder: 1
   speedMinMax: {x: 1, y: 60}
   striker: {fileID: 4488817735888133400}
   pucks:
@@ -6067,47 +6155,61 @@ MonoBehaviour:
   - {fileID: 288120660}
   tPuck: {fileID: 359881031}
   tPot: {fileID: 969271919}
-  strikeDir: {x: 0.32866237, y: 0.9444475}
-  strikeSpeed: 13.95928
+  strikeDir: {x: 0.3549101, y: 0.9349004}
+  strikeSpeed: 28.550747
   strikeInfo:
-  - potID: 1
+  - potID: 0
+    puckID: 1
+    hDot: 0.6818652
+    pos: {x: -3.5, y: -4.25}
+    dir: {x: -0.75387245, y: 0.65702075}
+    tar: {x: -6.3689303, y: -1.7496476}
+    rVec: {x: 0, y: 0}
+    speed: 19.98274
+  - potID: 3
     puckID: 0
-    hDot: 0.99976957
-    pos: {x: 2.7222223, y: -4.25}
-    dir: {x: 0.32866237, y: 0.9444475}
-    tar: {x: 4.5836663, y: 1.0990644}
-    speed: 13.95928
-  - potID: 0
-    puckID: 2
-    hDot: 0.9851691
-    pos: {x: 1.9444447, y: -4.25}
-    dir: {x: -0.6434483, y: 0.7654896}
-    tar: {x: -5.377022, y: 4.4601116}
-    speed: 16.481424
-  - potID: 0
-    puckID: 3
-    hDot: 0.7233266
-    pos: {x: -3.5, y: -4.25}
-    dir: {x: -0.6830459, y: 0.7303754}
-    tar: {x: -6.7264657, y: -0.7999669}
-    speed: 18.959599
-  - potID: 0
-    puckID: 5
-    hDot: 0.58530104
-    pos: {x: 3.5, y: -4.25}
-    dir: {x: -0.3052066, y: 0.9522861}
-    tar: {x: 0.78308505, y: 4.2271442}
-    speed: 30.48992
-  - potID: 1
+    hDot: 0.9045927
+    pos: {x: 2.4160094, y: -4.250001}
+    dir: {x: -0.3075043, y: 0.95154667}
+    tar: {x: -1.0999999, y: 6.63}
+    rVec: {x: -3.6292133, y: -11.230301}
+    speed: 29.889803
+  - potID: 3
+    puckID: 1
+    hDot: 0.9850369
+    pos: {x: -2.3315175, y: -4.25}
+    dir: {x: -0.21841496, y: 0.975856}
+    tar: {x: -4.7666664, y: 6.63}
+    rVec: {x: -1.5937457, y: -7.120695}
+    speed: 27.177105
+  - potID: 3
     puckID: 6
-    hDot: 0.7313644
-    pos: {x: -3.5, y: -4.25}
-    dir: {x: 0.49595135, y: 0.8683503}
-    tar: {x: 1.8782444, y: 5.16665}
-    speed: 23.798517
+    hDot: 0.34333774
+    pos: {x: 2.29775, y: -4.250001}
+    dir: {x: -0.17475796, y: 0.98461145}
+    tar: {x: 0.3666668, y: 6.63}
+    rVec: {x: -2.206268, y: -12.430431}
+    speed: 63.213154
+  - potID: 2
+    puckID: 3
+    hDot: 0.6357191
+    pos: {x: -2.341654, y: -4.25}
+    dir: {x: 0.24155511, y: 0.9703871}
+    tar: {x: 0.3666668, y: 6.63}
+    rVec: {x: 2.9046807, y: -11.668827}
+    speed: 38.024532
+  - potID: 2
+    puckID: 4
+    hDot: 0.9909536
+    pos: {x: -3.030303, y: -4.25}
+    dir: {x: 0.3549101, y: 0.9349004}
+    tar: {x: 1.1000004, y: 6.63}
+    rVec: {x: 3.859384, y: -10.166348}
+    speed: 28.550747
   placeTokens: 0
   calcDir: 0
   strike: 0
+  shotID: -1
 --- !u!4 &2019457590
 Transform:
   m_ObjectHideFlags: 0
@@ -6213,7 +6315,7 @@ PrefabInstance:
     - target: {fileID: 3108984812512672334, guid: bd4654ce0ac1fb742807e63cf51c997b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7222223
+      value: -3.030303
       objectReference: {fileID: 0}
     - target: {fileID: 3108984812512672334, guid: bd4654ce0ac1fb742807e63cf51c997b,
         type: 3}
@@ -6289,17 +6391,23 @@ PrefabInstance:
     - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_Name
-      value: Puck (0)
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1928305524840835864, guid: 65511f5a78553cd41878372b0d050318,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.8034496
+      value: -5.16
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6894839
+      value: -5.06
       objectReference: {fileID: 0}
     - target: {fileID: 6783880712682949328, guid: 65511f5a78553cd41878372b0d050318,
         type: 3}
