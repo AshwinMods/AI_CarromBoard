@@ -35,6 +35,8 @@ public class BoardManager : MonoBehaviour
 	[SerializeField] Rigidbody2D striker;
 	[SerializeField] Rigidbody2D[] pucks;
 	[SerializeField] Transform[] pots;
+	[SerializeField] Transform visualPot, visualPuck, visualStrike, visualTarget;
+	[SerializeField] LineRenderer visualLine;
 
 	[Header("Realtime (ReadOnly)")]
 	[SerializeField] Transform tPuck;
@@ -334,10 +336,39 @@ public class BoardManager : MonoBehaviour
 			strikeSpeed = strikeInfo[bestStrike].speed;
 			striker.transform.position = strikeInfo[bestStrike].pos;
 			striker.velocity = Vector2.zero;
-		}else if (checkObstalces)
+
+			//Visualize
+			visualPot.gameObject.SetActive(true);
+			visualPuck.gameObject.SetActive(true);
+			visualLine.gameObject.SetActive(true);
+			visualStrike.gameObject.SetActive(true);
+			visualTarget.gameObject.SetActive(true);
+			visualStrike.up = strikeInfo[bestStrike].dir;
+			visualStrike.position = strikeInfo[bestStrike].pos;
+			visualTarget.position = strikeInfo[bestStrike].tar;
+			visualPot.position = pots[strikeInfo[bestStrike].potID].position;
+			visualPuck.position = pucks[strikeInfo[bestStrike].puckID].position;
+			visualPuck.up = (visualPot.position - visualPuck.position);
+			visualPot.up = visualPuck.up;
+
+			if (visualLine.positionCount != 4)
+				visualLine.positionCount = 4;
+			visualLine.SetPosition(0, visualStrike.position);
+			visualLine.SetPosition(1, visualTarget.position);
+			visualLine.SetPosition(2, visualPuck.position);
+			visualLine.SetPosition(3, visualPot.position);
+		}
+		else if (checkObstalces)
 		{
 			// If no shot possible without collision, then let's HIT anyway
 			Calc_BestShot(pID, false); //Recursion is not a bad idea for this case.
+		}else
+		{
+			visualPot.gameObject.SetActive(false);
+			visualPuck.gameObject.SetActive(false);
+			visualLine.gameObject.SetActive(false);
+			visualStrike.gameObject.SetActive(false);
+			visualTarget.gameObject.SetActive(false);
 		}
 	}
 	#endregion
